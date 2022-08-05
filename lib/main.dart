@@ -88,7 +88,6 @@ class _BodyState extends State<Body> {
     if (_presenteFormKey.currentState!.validate()) {
       _presenteFormKey.currentState!.save();
       String ip = await Server.obtenerIp();
-      _mostrarMensaje(ip, false);
       if (ip.isEmpty) {
         _mostrarMensaje('ERROR - Volver a Intentar', true);
       } else {
