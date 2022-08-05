@@ -25,7 +25,7 @@ class Server {
     final Map<String, dynamic> queryParams = {'ip': ip};
 
     final response = await http.post(
-      Uri.http(
+      Uri.https(
           'listapresente-back.herokuapp.com', '/presente/$legajo', queryParams),
       headers: {
         HttpHeaders.acceptHeader: 'application/json',

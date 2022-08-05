@@ -88,6 +88,7 @@ class _BodyState extends State<Body> {
     if (_presenteFormKey.currentState!.validate()) {
       _presenteFormKey.currentState!.save();
       String ip = await Server.obtenerIp();
+      _mostrarMensaje(ip, false);
       if (ip.isEmpty) {
         _mostrarMensaje('ERROR - Volver a Intentar', true);
       } else {
@@ -171,14 +172,14 @@ class _BodyState extends State<Body> {
                       ),
                     ),
                     const SizedBox(height: 16.0),
-                    ElevatedButton(
-                      onPressed: () {
-                        _enviarPresente();
-                      },
-                      child: loading
-                          ? const CircularProgressIndicator()
-                          : const Text('DAR PRESENTE'),
-                    ),
+                    loading
+                        ? const CircularProgressIndicator()
+                        : ElevatedButton(
+                            onPressed: () {
+                              _enviarPresente();
+                            },
+                            child: const Text('DAR PRESENTE'),
+                          ),
                   ],
                 ),
               ),
