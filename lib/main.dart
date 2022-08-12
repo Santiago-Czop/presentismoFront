@@ -95,7 +95,7 @@ class _BodyState extends State<Body> {
         if (exito) {
           SharedPreferences prefs = await _prefs;
           await prefs.setString('presente', DateTime.now().toIso8601String());
-          _mostrarMensaje('PRESENTE DADO', false);
+          _mostrarMensaje('PRESENTE CONFIRMADO', false);
         } else {
           _mostrarMensaje('ERROR - Volver a Intentar', true);
         }
